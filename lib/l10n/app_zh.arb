@@ -1,0 +1,19 @@
+{
+    "appTitle": "塔罗 AI",
+    "pressButtonToStart": "按下按钮并向卡牌提问...",
+    "listening": "正在聆听...",
+    "isThisYourQuestion": "这是您的问题吗？",
+    "tryAgain": "再问一次",
+    "askNewQuestion": "提一个新问题",
+    "errorOccurred": "发生错误。请重试。",
+    "openCard": "抽一张牌",
+    "whatDoesItMean": "这是什么意思？",
+    "receivingMessage": "正在接收消息...",
+    "tapToClose": "(轻触屏幕关闭)",
+    "noCardsFound": "在文件夹中未找到卡牌",
+    "permissionDenied": "读取卡牌的权限被拒绝。",
+    "loginWelcome": "欢迎使用塔罗 AI",
+    "loginSubtitle": "为了获得个性化体验和更准确的预测，请登录。",
+    "loginWithGoogle": "使用 Google 登录",
+    "loginWithFacebook": "使用 Facebook 登录"
+}

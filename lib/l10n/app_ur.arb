@@ -1,0 +1,19 @@
+{
+    "appTitle": "ٹیروٹ AI",
+    "pressButtonToStart": "بٹن دبائیں اور کارڈ سے پوچھیں...",
+    "listening": "سن رہا ہے...",
+    "isThisYourQuestion": "کیا یہ آپ کا سوال ہے؟",
+    "tryAgain": "دوبارہ پوچھیں",
+    "askNewQuestion": "ایک نیا سوال پوچھیں",
+    "errorOccurred": "ایک خرابی پیش آئی۔ براہ کرم دوبارہ کوشش کریں۔",
+    "openCard": "ایک کارڈ نکالیں",
+    "whatDoesItMean": "اس کا کیا مطلب ہے؟",
+    "receivingMessage": "پیغام وصول ہو رہا ہے...",
+    "tapToClose": "(بند کرنے کے لیے اسکرین پر ٹیپ کریں)",
+    "noCardsFound": "فولڈر میں کوئی کارڈ نہیں ملا",
+    "permissionDenied": "کارڈ پڑھنے کی اجازت سے انکار کیا گیا ہے۔",
+    "loginWelcome": "ٹیروٹ AI میں خوش آمدید",
+    "loginSubtitle": "ایک ذاتی تجربے اور زیادہ درست پیش گوئی کے لیے، براہ کرم لاگ ان کریں۔",
+    "loginWithGoogle": "Google کے ساتھ سائن ان کریں",
+    "loginWithFacebook": "Facebook کے ساتھ سائن ان کریں"
+}

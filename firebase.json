@@ -1,0 +1,33 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "tarot-ai-45cd6",
+          "appId": "1:557496452044:android:b243355d856702a7e21369",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "tarot-ai-45cd6",
+          "configurations": {
+            "android": "1:557496452044:android:b243355d856702a7e21369",
+            "ios": "1:557496452044:ios:b66b3b4b017a62d4e21369"
+          }
+        }
+      }
+    }
+  },
+  "functions": {
+    "source": "functions"
+  },
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

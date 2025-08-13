@@ -1,0 +1,19 @@
+{
+    "appTitle": "Tarot AI",
+    "pressButtonToStart": "Paina nappia ja kysy korteilta...",
+    "listening": "Kuuntelen...",
+    "isThisYourQuestion": "Onko tämä sinun kysymyksesi?",
+    "tryAgain": "Kysy uudelleen",
+    "askNewQuestion": "Esitä uusi kysymys",
+    "errorOccurred": "Tapahtui virhe. Yritä uudelleen.",
+    "openCard": "Vedä kortti",
+    "whatDoesItMean": "Mitä se tarkoittaa?",
+    "receivingMessage": "Vastaanotetaan viestiä...",
+    "tapToClose": "(Napauta näyttöä sulkeaksesi)",
+    "noCardsFound": "Kansiosta ei löytynyt kortteja",
+    "permissionDenied": "Korttien lukeminen evätty.",
+    "loginWelcome": "Tervetuloa Tarot AI:hin",
+    "loginSubtitle": "Saat henkilökohtaisen kokemuksen ja tarkemman ennustuksen kirjautumalla sisään.",
+    "loginWithGoogle": "Kirjaudu sisään Googlella",
+    "loginWithFacebook": "Kirjaudu sisään Facebookilla"
+}

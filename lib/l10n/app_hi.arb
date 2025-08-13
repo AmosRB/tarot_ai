@@ -1,0 +1,19 @@
+{
+    "appTitle": "टैरोट AI",
+    "pressButtonToStart": "बटन दबाएं और कार्ड से पूछें...",
+    "listening": "सुन रहा है...",
+    "isThisYourQuestion": "क्या यह आपका सवाल है?",
+    "tryAgain": "फिर से पूछें",
+    "askNewQuestion": "एक नया सवाल पूछें",
+    "errorOccurred": "एक त्रुटि हुई। कृपया पुनः प्रयास करें।",
+    "openCard": "एक कार्ड निकालें",
+    "whatDoesItMean": "इसका क्या मतलब है?",
+    "receivingMessage": "संदेश प्राप्त हो रहा है...",
+    "tapToClose": "(बंद करने के लिए स्क्रीन पर टैप करें)",
+    "noCardsFound": "फ़ोल्डर में कोई कार्ड नहीं मिला",
+    "permissionDenied": "कार्ड पढ़ने की अनुमति अस्वीकार कर दी गई।",
+    "loginWelcome": "टैरोट AI में आपका स्वागत है",
+    "loginSubtitle": "एक व्यक्तिगत अनुभव और अधिक सटीक भविष्यवाणी के लिए, कृपया लॉग इन करें।",
+    "loginWithGoogle": "Google के साथ साइन इन करें",
+    "loginWithFacebook": "Facebook के साथ साइन इन करें"
+}

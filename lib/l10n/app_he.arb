@@ -1,0 +1,19 @@
+{
+    "appTitle": "טארוט AI",
+    "pressButtonToStart": "לחצו על הכפתור לשאול את הקלפים...",
+    "listening": "מאזין...",
+    "isThisYourQuestion": "האם זו שאלתך?",
+    "tryAgain": "לשאול שוב",
+    "askNewQuestion": "שאלה חדשה",
+    "errorOccurred": "אירעה שגיאה. נסו שוב.",
+    "openCard": "לפתוח קלף",
+    "whatDoesItMean": "מה זה אומר?",
+    "receivingMessage": "מקבלת מסר...",
+    "tapToClose": "(גע במסך כדי לסגור)",
+    "noCardsFound": "לא נמצאו קלפים בתיקייה",
+    "permissionDenied": "אין הרשאה לקרוא את הקלפים.",
+    "loginWelcome": "ברוכים הבאים ל-Tarot AI",
+    "loginSubtitle": "כדי לקבל חוויה מותאמת אישית וחיזוי מדוייק יותר, אנא התחבר.",
+    "loginWithGoogle": "כניסה עם Google",
+    "loginWithFacebook": "כניסה עם Facebook"
+}

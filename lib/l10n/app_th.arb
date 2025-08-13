@@ -1,0 +1,19 @@
+{
+    "appTitle": "ไพ่ทาโรต์ AI",
+    "pressButtonToStart": "กดปุ่มแล้วถามไพ่...",
+    "listening": "กำลังฟัง...",
+    "isThisYourQuestion": "นี่คือคำถามของคุณหรือไม่?",
+    "tryAgain": "ถามอีกครั้ง",
+    "askNewQuestion": "ถามคำถามใหม่",
+    "errorOccurred": "เกิดข้อผิดพลาด โปรดลองอีกครั้ง",
+    "openCard": "เปิดไพ่",
+    "whatDoesItMean": "มันหมายความว่าอย่างไร?",
+    "receivingMessage": "กำลังรับข้อความ...",
+    "tapToClose": "(แตะที่หน้าจอเพื่อปิด)",
+    "noCardsFound": "ไม่พบไพ่ในโฟลเดอร์",
+    "permissionDenied": "ไม่ได้รับอนุญาตให้อ่านไพ่",
+    "loginWelcome": "ยินดีต้อนรับสู่ไพ่ทาโรต์ AI",
+    "loginSubtitle": "สำหรับประสบการณ์เฉพาะบุคคลและการทำนายที่แม่นยำยิ่งขึ้น โปรดเข้าสู่ระบบ",
+    "loginWithGoogle": "ลงชื่อเข้าใช้ด้วย Google",
+    "loginWithFacebook": "ลงชื่อเข้าใช้ด้วย Facebook"
+}

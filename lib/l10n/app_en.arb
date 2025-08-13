@@ -1,0 +1,19 @@
+{
+    "appTitle": "Tarot AI",
+    "pressButtonToStart": "Press the button and ask the cards...",
+    "listening": "Listening...",
+    "isThisYourQuestion": "Is this your question?",
+    "tryAgain": "Ask Again",
+    "askNewQuestion": "Ask a New Question",
+    "errorOccurred": "An error occurred. Please try again.",
+    "openCard": "Draw a Card",
+    "whatDoesItMean": "What does it mean?",
+    "receivingMessage": "Receiving message...",
+    "tapToClose": "(Tap screen to close)",
+    "noCardsFound": "No cards found in folder",
+    "permissionDenied": "Permission denied to read cards.",
+    "loginWelcome": "Welcome to Tarot AI",
+    "loginSubtitle": "For a personalized experience and a more accurate prediction, please log in.",
+    "loginWithGoogle": "Sign in with Google",
+    "loginWithFacebook": "Sign in with Facebook"
+}

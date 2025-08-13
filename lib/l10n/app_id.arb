@@ -1,0 +1,19 @@
+{
+    "appTitle": "Tarot AI",
+    "pressButtonToStart": "Tekan tombol dan tanyakan pada kartu...",
+    "listening": "Mendengarkan...",
+    "isThisYourQuestion": "Apakah ini pertanyaan Anda?",
+    "tryAgain": "Tanyakan lagi",
+    "askNewQuestion": "Ajukan pertanyaan baru",
+    "errorOccurred": "Terjadi kesalahan. Silakan coba lagi.",
+    "openCard": "Tarik kartu",
+    "whatDoesItMean": "Apa artinya?",
+    "receivingMessage": "Menerima pesan...",
+    "tapToClose": "(Ketuk layar untuk menutup)",
+    "noCardsFound": "Tidak ada kartu ditemukan di folder",
+    "permissionDenied": "Izin untuk membaca kartu ditolak.",
+    "loginWelcome": "Selamat datang di Tarot AI",
+    "loginSubtitle": "Untuk pengalaman yang dipersonalisasi dan prediksi yang lebih akurat, silakan masuk.",
+    "loginWithGoogle": "Masuk dengan Google",
+    "loginWithFacebook": "Masuk dengan Facebook"
+}

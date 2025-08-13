@@ -1,0 +1,19 @@
+{
+    "appTitle": "ট্যারট AI",
+    "pressButtonToStart": "বোতাম টিপুন এবং কার্ডের কাছে জিজ্ঞাসা করুন...",
+    "listening": "শুনছি...",
+    "isThisYourQuestion": "এটি কি আপনার প্রশ্ন?",
+    "tryAgain": "আবার জিজ্ঞাসা করুন",
+    "askNewQuestion": "একটি নতুন প্রশ্ন জিজ্ঞাসা করুন",
+    "errorOccurred": "একটি ত্রুটি ঘটেছে। দয়া করে আবার চেষ্টা করুন।",
+    "openCard": "একটি কার্ড টানুন",
+    "whatDoesItMean": "এর অর্থ কি?",
+    "receivingMessage": "বার্তা গ্রহণ করা হচ্ছে...",
+    "tapToClose": "(বন্ধ করতে স্ক্রীনে ট্যাপ করুন)",
+    "noCardsFound": "ফোল্ডারে কোনো কার্ড পাওয়া যায়নি",
+    "permissionDenied": "কার্ড পড়ার অনুমতি প্রত্যাখ্যান করা হয়েছে।",
+    "loginWelcome": "ট্যারট AI তে স্বাগতম",
+    "loginSubtitle": "ব্যক্তিগত অভিজ্ঞতা এবং আরও সঠিক পূর্বাভাসের জন্য, দয়া করে লগ ইন করুন।",
+    "loginWithGoogle": "Google দিয়ে সাইন ইন করুন",
+    "loginWithFacebook": "Facebook দিয়ে সাইন ইন করুন"
+}

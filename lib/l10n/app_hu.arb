@@ -1,0 +1,19 @@
+{
+    "appTitle": "Tarot AI",
+    "pressButtonToStart": "Nyomja meg a gombot, és kérdezze meg a kártyákat...",
+    "listening": "Hallgatás...",
+    "isThisYourQuestion": "Ez a kérdése?",
+    "tryAgain": "Kérdezze meg újra",
+    "askNewQuestion": "Tegyen fel új kérdést",
+    "errorOccurred": "Hiba történt. Kérjük, próbálja újra.",
+    "openCard": "Húzzon egy kártyát",
+    "whatDoesItMean": "Mit jelent ez?",
+    "receivingMessage": "Üzenet fogadása...",
+    "tapToClose": "(Érintse meg a képernyőt a bezáráshoz)",
+    "noCardsFound": "Nem található kártya a mappában",
+    "permissionDenied": "A kártyák olvasására vonatkozó engedély megtagadva.",
+    "loginWelcome": "Üdvözöljük a Tarot AI-ban",
+    "loginSubtitle": "A személyre szabott élmény és a pontosabb jóslás érdekében, kérjük, jelentkezzen be.",
+    "loginWithGoogle": "Bejelentkezés Google-lal",
+    "loginWithFacebook": "Bejelentkezés Facebookkal"
+}

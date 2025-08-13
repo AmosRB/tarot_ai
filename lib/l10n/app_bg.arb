@@ -1,0 +1,19 @@
+{
+    "appTitle": "Таро AI",
+    "pressButtonToStart": "Натиснете бутона и попитайте картите...",
+    "listening": "Слушам...",
+    "isThisYourQuestion": "Това ли е вашият въпрос?",
+    "tryAgain": "Попитайте отново",
+    "askNewQuestion": "Задайте нов въпрос",
+    "errorOccurred": "Възникна грешка. Моля, опитайте отново.",
+    "openCard": "Извадете карта",
+    "whatDoesItMean": "Какво означава?",
+    "receivingMessage": "Получаване на съобщение...",
+    "tapToClose": "(Докоснете екрана, за да затворите)",
+    "noCardsFound": "Не са намерени карти в папката",
+    "permissionDenied": "Разрешението за четене на карти е отказано.",
+    "loginWelcome": "Добре дошли в Таро AI",
+    "loginSubtitle": "За персонализирано изживяване и по-точно предсказание, моля, влезте.",
+    "loginWithGoogle": "Вход с Google",
+    "loginWithFacebook": "Вход с Facebook"
+}

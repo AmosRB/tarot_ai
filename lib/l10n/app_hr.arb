@@ -1,0 +1,19 @@
+{
+    "appTitle": "Tarot AI",
+    "pressButtonToStart": "Pritisnite gumb i pitajte karte...",
+    "listening": "Slušam...",
+    "isThisYourQuestion": "Je li ovo vaše pitanje?",
+    "tryAgain": "Pitajte ponovno",
+    "askNewQuestion": "Postavite novo pitanje",
+    "errorOccurred": "Došlo je do pogreške. Molimo pokušajte ponovo.",
+    "openCard": "Izvucite kartu",
+    "whatDoesItMean": "Što to znači?",
+    "receivingMessage": "Primanje poruke...",
+    "tapToClose": "(Dodirnite zaslon za zatvaranje)",
+    "noCardsFound": "Nisu pronađene karte u mapi",
+    "permissionDenied": "Dozvola za čitanje karata je odbijena.",
+    "loginWelcome": "Dobrodošli u Tarot AI",
+    "loginSubtitle": "Za personalizirano iskustvo i preciznije predviđanje, molimo prijavite se.",
+    "loginWithGoogle": "Prijavite se s Googleom",
+    "loginWithFacebook": "Prijavite se s Facebookom"
+}
