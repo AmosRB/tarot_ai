@@ -1,0 +1,129 @@
+צבע REMEMO -    0xFFFFB300
+
+פונט שעה :
+
+League Gothi
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+_____________
+
+flutter clean
+flutter pub get
+flutter run
+
+
+
+flutter clean
+flutter pub cache repair
+flutter pub get
+
+-------------------
+בניית גרסת פרודקשן 
+
+
+flutter clean
+flutter pub get
+
+flutter build appbundle --release
+
+---------------------------------------
+
+
+
+הרצת פונקציית ענן:
+
+firebase deploy --only functions
+
+-------------------------------------
+
+משיכת לוגים מהטלפון
+
+adb -s 192.168.1.131:5555 logcat
+
+
+
+cd android
+gradlew clean
+cd ..
+
+
+flutter run
+
+---------------------------------------
+
+adb devices
+
+
+http://192.168.1.227:8081
+
+-------------------------
+
+
+התקנה / הפעלה של פלאטר:
+
+flutter devices
+
+על האמולטור:
+
+flutter run -d emulator-5554
+
+על הטלפון:
+
+עמוס:
+
+flutter run -d R5CR30F377K
+
+עמוס ישן:
+
+flutter run -d ce011711cab5782e05
+
+דיאנה
+
+flutter run -d RFCR20PJDKY
+
+----------------------------------------
+
+OneSignal app ID
+
+ddb64dc0-88a7-426d-a007-29ff00898887
+
+-----
+API Authentication Key
+
+os_v2_app_3w3e3qeiu5bg3iahfh7qbcmiq4t4oxy2xlnelz4ferrf6b3lhq4uaoawojenxydocn5agivubmu5655fsu57de3hoaa4jas27znbfpa
+
+-----------
+
+קישור ל privacy-policy
+
+https://tarot-ai-45cd6.web.app/privacy-policy.html
+
+מחולל יצירת איקונים:
+
+flutter pub run build_runner build
+
+מחולל שינויים קבוע אם פתוח בטרמינל נפרד:
+
+flutter pub run build_runner watch
+
+
+חיבור טלפון:
+
+adb devices
+
+adb connect 192.168.1.131:5555
+
+IP טלפון 
+
+R5CR30F377K     device
+
+10.26.15.0/24 dev rmnet1 proto kernel scope link src 10.26.15.180
+192.168.1.0/24 dev wlan0 proto kernel scope link src 192.168.1.131
+-----------------------------
+
+הוצאת sha של האפליקציה
+
+gradlew signingReport
+
+----------------------------------
+

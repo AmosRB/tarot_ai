@@ -1,0 +1,19 @@
+{
+    "appTitle": "Tarot AI",
+    "pressButtonToStart": "Düğmeye basın ve kartlara sorun...",
+    "listening": "Dinliyor...",
+    "isThisYourQuestion": "Bu sizin sorunuz mu?",
+    "tryAgain": "Tekrar Sor",
+    "askNewQuestion": "Yeni Bir Soru Sor",
+    "errorOccurred": "Bir hata oluştu. Lütfen tekrar deneyin.",
+    "openCard": "Bir Kart Çek",
+    "whatDoesItMean": "Ne anlama geliyor?",
+    "receivingMessage": "Mesaj alınıyor...",
+    "tapToClose": "(Kapatmak için ekrana dokunun)",
+    "noCardsFound": "Klasörde kart bulunamadı",
+    "permissionDenied": "Kartları okuma izni reddedildi.",
+    "loginWelcome": "Tarot AI'ya Hoş Geldiniz",
+    "loginSubtitle": "Kişiselleştirilmiş bir deneyim ve daha doğru bir tahmin için lütfen giriş yapın.",
+    "loginWithGoogle": "Google ile giriş yapın",
+    "loginWithFacebook": "Facebook ile giriş yapın"
+}

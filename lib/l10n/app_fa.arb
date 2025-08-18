@@ -1,0 +1,19 @@
+{
+    "appTitle": "تاروت AI",
+    "pressButtonToStart": "دکمه را فشار دهید و از کارت‌ها بپرسید...",
+    "listening": "در حال گوش دادن...",
+    "isThisYourQuestion": "آیا این سوال شماست؟",
+    "tryAgain": "دوباره بپرسید",
+    "askNewQuestion": "یک سوال جدید بپرسید",
+    "errorOccurred": "خطایی رخ داد. لطفا دوباره تلاش کنید.",
+    "openCard": "یک کارت بکشید",
+    "whatDoesItMean": "به چه معناست؟",
+    "receivingMessage": "در حال دریافت پیام...",
+    "tapToClose": "(برای بستن روی صفحه ضربه بزنید)",
+    "noCardsFound": "هیچ کارتی در پوشه یافت نشد",
+    "permissionDenied": "اجازه خواندن کارت‌ها رد شد.",
+    "loginWelcome": "به تاروت AI خوش آمدید",
+    "loginSubtitle": "برای تجربه شخصی‌سازی شده و پیش‌بینی دقیق‌تر، لطفا وارد شوید.",
+    "loginWithGoogle": "ورود با گوگل",
+    "loginWithFacebook": "ورود با فیس‌بوک"
+}

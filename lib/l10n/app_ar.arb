@@ -1,0 +1,19 @@
+{
+    "appTitle": "تاروت AI",
+    "pressButtonToStart": "اضغط على الزر واسأل البطاقات...",
+    "listening": "جارٍ الاستماع...",
+    "isThisYourQuestion": "هل هذا سؤالك؟",
+    "tryAgain": "اسأل مرة أخرى",
+    "askNewQuestion": "اطرح سؤالاً جديداً",
+    "errorOccurred": "حدث خطأ. الرجاء المحاولة مرة أخرى.",
+    "openCard": "اسحب بطاقة",
+    "whatDoesItMean": "ماذا تعني؟",
+    "receivingMessage": "جارٍ استلام الرسالة...",
+    "tapToClose": "(انقر على الشاشة للإغلاق)",
+    "noCardsFound": "لم يتم العثور على بطاقات في المجلد",
+    "permissionDenied": "تم رفض الإذن لقراءة البطاقات.",
+    "loginWelcome": "مرحباً بك في تاروت AI",
+    "loginSubtitle": "للحصول على تجربة مخصصة وتنبؤ أكثر دقة، يرجى تسجيل الدخول.",
+    "loginWithGoogle": "تسجيل الدخول باستخدام جوجل",
+    "loginWithFacebook": "تسجيل الدخول باستخدام فيسبوك"
+}

@@ -1,0 +1,19 @@
+{
+    "appTitle": "Tarot AI",
+    "pressButtonToStart": "Druk op de knop en vraag de kaarten...",
+    "listening": "Luistert...",
+    "isThisYourQuestion": "Is dit uw vraag?",
+    "tryAgain": "Vraag opnieuw",
+    "askNewQuestion": "Stel een nieuwe vraag",
+    "errorOccurred": "Er is een fout opgetreden. Probeer het opnieuw.",
+    "openCard": "Trek een kaart",
+    "whatDoesItMean": "Wat betekent het?",
+    "receivingMessage": "Bericht ontvangen...",
+    "tapToClose": "(Tik op het scherm om te sluiten)",
+    "noCardsFound": "Geen kaarten gevonden in de map",
+    "permissionDenied": "Toestemming om kaarten te lezen geweigerd.",
+    "loginWelcome": "Welkom bij Tarot AI",
+    "loginSubtitle": "Voor een gepersonaliseerde ervaring en een nauwkeurigere voorspelling, logt u in.",
+    "loginWithGoogle": "Inloggen met Google",
+    "loginWithFacebook": "Inloggen met Facebook"
+}

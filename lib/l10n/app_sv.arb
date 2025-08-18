@@ -1,0 +1,19 @@
+{
+    "appTitle": "Tarot AI",
+    "pressButtonToStart": "Tryck på knappen och fråga korten...",
+    "listening": "Lyssnar...",
+    "isThisYourQuestion": "Är detta din fråga?",
+    "tryAgain": "Fråga igen",
+    "askNewQuestion": "Ställ en ny fråga",
+    "errorOccurred": "Ett fel uppstod. Vänligen försök igen.",
+    "openCard": "Dra ett kort",
+    "whatDoesItMean": "Vad betyder det?",
+    "receivingMessage": "Tar emot meddelande...",
+    "tapToClose": "(Tryck på skärmen för att stänga)",
+    "noCardsFound": "Inga kort hittades i mappen",
+    "permissionDenied": "Behörighet att läsa kort nekades.",
+    "loginWelcome": "Välkommen till Tarot AI",
+    "loginSubtitle": "För en personlig upplevelse och en mer exakt förutsägelse, vänligen logga in.",
+    "loginWithGoogle": "Logga in med Google",
+    "loginWithFacebook": "Logga in med Facebook"
+}

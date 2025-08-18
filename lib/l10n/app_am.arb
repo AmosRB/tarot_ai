@@ -1,0 +1,19 @@
+{
+    "appTitle": "ታሮት AI",
+    "pressButtonToStart": "አዝራሩን ይጫኑ እና ካርዶቹን ይጠይቁ...",
+    "listening": "እያዳመጠ ነው...",
+    "isThisYourQuestion": "ይህ የእርስዎ ጥያቄ ነው?",
+    "tryAgain": "እንደገና ይጠይቁ",
+    "askNewQuestion": "አዲስ ጥያቄ ይጠይቁ",
+    "errorOccurred": "ስህተት ተከስቷል። እባክዎ እንደገና ይሞክሩ።",
+    "openCard": "ካርድ ይምረጡ",
+    "whatDoesItMean": "ምን ማለት ነው?",
+    "receivingMessage": "መልዕክት እየተቀበለ ነው...",
+    "tapToClose": "(ለመዝጋት ማያ ገጹን ይንኩ)",
+    "noCardsFound": "በአቃፊው ውስጥ ምንም ካርዶች አልተገኙም",
+    "permissionDenied": "ካርዶችን ለማንበብ ፈቃድ ተከልክሏል።",
+    "loginWelcome": "ወደ ታሮት AI እንኳን በደህና መጡ",
+    "loginSubtitle": "ለግል የተበጀ ተሞክሮ እና ይበልጥ ትክክለኛ ትንበያ ለማግኘት፣ እባክዎ ይግቡ።",
+    "loginWithGoogle": "በGoogle ይግቡ",
+    "loginWithFacebook": "በFacebook ይግቡ"
+}

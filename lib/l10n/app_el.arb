@@ -1,0 +1,19 @@
+{
+    "appTitle": "Ταρώ AI",
+    "pressButtonToStart": "Πατήστε το κουμπί και ρωτήστε τις κάρτες...",
+    "listening": "Ακούω...",
+    "isThisYourQuestion": "Αυτή είναι η ερώτησή σας;",
+    "tryAgain": "Ρωτήστε ξανά",
+    "askNewQuestion": "Κάντε μια νέα ερώτηση",
+    "errorOccurred": "Προέκυψε σφάλμα. Παρακαλώ δοκιμάστε ξανά.",
+    "openCard": "Τραβήξτε μια κάρτα",
+    "whatDoesItMean": "Τι σημαίνει;",
+    "receivingMessage": "Λήψη μηνύματος...",
+    "tapToClose": "(Πατήστε την οθόνη για να κλείσετε)",
+    "noCardsFound": "Δεν βρέθηκαν κάρτες στο φάκελο",
+    "permissionDenied": "Η άδεια ανάγνωσης καρτών απορρίφθηκε.",
+    "loginWelcome": "Καλώς ήρθατε στο Ταρώ AI",
+    "loginSubtitle": "Για μια εξατομικευμένη εμπειρία και μια πιο ακριβή πρόβλεψη, παρακαλώ συνδεθείτε.",
+    "loginWithGoogle": "Συνδεθείτε με το Google",
+    "loginWithFacebook": "Συνδεθείτε με το Facebook"
+}

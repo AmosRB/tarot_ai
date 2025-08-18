@@ -1,0 +1,13 @@
+# המיקום של קבצי התרגום שלך
+arb-dir: lib/l10n
+# קובץ התבנית (באנגלית)
+template-arb-file: app_en.arb
+# שם קובץ הפלט שירוכזו בו כל התרגומים
+output-localization-file: app_localizations.dart
+
+# ⬇️ שתי השורות החדשות והחשובות ביותר ⬇️
+
+# מורה לפלאטר לייצר קובץ אמיתי ולא חבילה וירטואלית
+synthetic-package: false
+# (מומלץ) קובע היכן ייווצרו קבצי ה-Dart החדשים
+output-dir: lib/generated/l10n

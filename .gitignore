@@ -1,0 +1,24 @@
+# Flutter
+/build/
+/.dart_tool/
+/.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+
+# Android
+android/.gradle/
+android/build/
+android/app/build/
+android/**/intermediates/
+*.aab
+*.apk
+*.jks
+*.keystore
+
+# iOS
+ios/Pods/
+ios/build/
+ios/Flutter/.last_build_id
+
+# Others
+*.ipa

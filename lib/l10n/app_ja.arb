@@ -1,0 +1,19 @@
+{
+    "appTitle": "タロットAI",
+    "pressButtonToStart": "ボタンを押してカードに質問してください...",
+    "listening": "聞いています...",
+    "isThisYourQuestion": "これはあなたの質問ですか？",
+    "tryAgain": "もう一度質問する",
+    "askNewQuestion": "新しい質問をする",
+    "errorOccurred": "エラーが発生しました。もう一度お試しください。",
+    "openCard": "カードを引く",
+    "whatDoesItMean": "それはどういう意味ですか？",
+    "receivingMessage": "メッセージを受信中...",
+    "tapToClose": "(閉じるには画面をタップ)",
+    "noCardsFound": "フォルダにカードが見つかりません",
+    "permissionDenied": "カードを読み取る権限が拒否されました。",
+    "loginWelcome": "タロットAIへようこそ",
+    "loginSubtitle": "パーソナライズされた体験とより正確な予測のために、ログインしてください。",
+    "loginWithGoogle": "Googleでサインイン",
+    "loginWithFacebook": "Facebookでサインイン"
+}
