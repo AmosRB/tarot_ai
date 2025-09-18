@@ -12,7 +12,7 @@ plugins {
 
 android {
     namespace = "com.dna.tarot_ai"
-    compileSdk = 35
+    compileSdk = 36
 
     signingConfigs {
         create("release") {
@@ -34,35 +34,21 @@ android {
 
     defaultConfig {
         applicationId = "com.dna.tarot_ai"
-        minSdk = 23
+        minSdk = flutter.minSdkVersion
         targetSdk = 35
 
-        // --- התיקון כאן: קריאת הגרסה מ-local.properties ---
         val lpFile = File(rootDir, "local.properties")
         check(lpFile.exists()) { "local.properties not found" }
         val lp = Properties().apply { lpFile.inputStream().use { load(it) } }
         
         versionCode = lp.getProperty("flutter.versionCode")?.toIntOrNull() ?: 1
         versionName = lp.getProperty("flutter.versionName") ?: "1.0"
-        // --- סוף התיקון ---
 
         manifestPlaceholders["adMobAppId"] = "ca-app-pub-9736164634286640~4848360703"
 
         vectorDrawables { useSupportLibrary = true }
         multiDexEnabled = true
     }
-
-    // הוסף את הבלוק הבא
-splits {
-    abi {
-        isEnable = true
-        reset()
-        include("armeabi-v7a", "arm64-v8a", "x86_64")
-        isUniversalApk = false
-    }
-}
-
-
 
     buildTypes {
         getByName("release") {

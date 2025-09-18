@@ -71,16 +71,25 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // שינוי כאן: פיצול הכותרת לשני ווידג'טים של Text
-                  Text(
-                    'ברוכים הבאים ל',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 28, color: Colors.white, fontWeight: FontWeight.w300),
-                  ),
-                  Text(
-                    'TAROT AI',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 28, color: Colors.white, fontWeight: FontWeight.w300),
-                  ),
+             Text(
+  AppLocalizations.of(context)!.loginWelcome,
+  textAlign: TextAlign.center,
+  style: TextStyle(
+    fontSize: 28,
+    color: Colors.white,
+    fontWeight: FontWeight.w300,
+  ),
+),
+Text(
+  AppLocalizations.of(context)!.appTitle,
+  textAlign: TextAlign.center,
+  style: TextStyle(
+    fontSize: 28,
+    color: Colors.white,
+    fontWeight: FontWeight.w300,
+  ),
+),
+
                   const SizedBox(height: 16),
                   Text(
                     AppLocalizations.of(context)!.loginSubtitle,

@@ -1,8 +1,9 @@
+// lib/main.dart
 import 'dart:async';
 import 'dart:math';
-import 'dart:ui' show PlatformDispatcher; // Required for PlatformDispatcher.onError
+import 'dart:ui' show PlatformDispatcher;
 
-import 'package:flutter/foundation.dart'; // Required for kReleaseMode
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -24,67 +25,118 @@ import 'firebase_options.dart';
 import 'package:tarot_ai/generated/l10n/app_localizations.dart';
 
 
+class AdsInitializer {
+  AdsInitializer._();
+  static final AdsInitializer instance = AdsInitializer._();
+
+  Completer<void>? _completer;
+
+  Future<void> ensureInitialized() {
+    if (_completer != null) return _completer!.future;
+    _completer = Completer<void>();
+    _initCmpAndMobileAds().then((_) {
+      if (!(_completer?.isCompleted ?? true)) _completer!.complete();
+    }).catchError((e, st) {
+      debugPrint('Ads init error: $e');
+      if (!(_completer?.isCompleted ?? true)) _completer!.complete();
+    });
+    return _completer!.future;
+  }
+// In lib/main.dart, inside AdsInitializer class
+
+Future<void> _initCmpAndMobileAds() async {
+  try {
+    final params = ConsentRequestParameters(
+      consentDebugSettings: kReleaseMode
+          ? null
+          // =====> התיקון כאן - המילה const נמחקה <=====
+          : ConsentDebugSettings(
+              debugGeography: DebugGeography.debugGeographyEea,
+            ),
+    );
+
+    final done = Completer<void>();
+
+    ConsentInformation.instance.requestConsentInfoUpdate(
+      params,
+      () async {
+        final isAvailable =
+            await ConsentInformation.instance.isConsentFormAvailable();
+
+        if (isAvailable) {
+          ConsentForm.loadConsentForm(
+            (ConsentForm form) {
+              form.show((FormError? formError) {
+                if (!done.isCompleted) done.complete();
+              });
+            },
+            (FormError loadError) {
+              if (!done.isCompleted) done.complete();
+            },
+          );
+        } else {
+          if (!done.isCompleted) done.complete();
+        }
+      },
+      (FormError error) {
+        if (!done.isCompleted) done.complete();
+      },
+    );
+
+    await done.future;
+    await MobileAds.instance.initialize();
+  } on PlatformException catch (e) {
+    debugPrint('[CMP] UMP platform exception during release build prep: $e');
+    await MobileAds.instance.initialize();
+  } catch (e) {
+    debugPrint('[CMP] UMP generic error during release build prep: $e');
+    await MobileAds.instance.initialize();
+  }
+}
+} // <--- !!!!!! זה הסוגר שהיה חסר !!!!!!
+
 /// This is the main entry point of the application.
-/// It initializes Firebase services, Crashlytics, Performance, and AdMob
-/// in a guarded zone to catch all errors.
 Future<void> main() async {
-  // Use runZonedGuarded to catch all errors, even those that occur
-  // outside of the Flutter framework.
   await runZonedGuarded<Future<void>>(() async {
-    // Ensure that the Flutter binding is initialized before any Flutter specific code.
     WidgetsFlutterBinding.ensureInitialized();
 
-    // Initialize Firebase. This must be the first Firebase call.
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
 
-    // Enable Crashlytics collection only in release mode.
     await FirebaseCrashlytics.instance
         .setCrashlyticsCollectionEnabled(kReleaseMode);
 
-    // Pass all Flutter errors to Crashlytics.
     FlutterError.onError =
         FirebaseCrashlytics.instance.recordFlutterFatalError;
 
-    // Catch errors that happen outside of the Flutter framework.
     PlatformDispatcher.instance.onError = (error, stack) {
       FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
       return true;
     };
 
-    // Enable Performance collection only in release mode.
     await FirebasePerformance.instance
         .setPerformanceCollectionEnabled(kReleaseMode);
 
-    // Optional: Trace app startup performance.
     final startupTrace =
         FirebasePerformance.instance.newTrace('app_startup');
     await startupTrace.start();
-    // Stop the trace after the first frame is rendered.
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await startupTrace.stop();
     });
 
-    // Initialize AdMob after all other services are ready.
-    await MobileAds.instance.initialize();
-
-    // Run the main application widget.
     runApp(const TarotAiApp());
+
+    unawaited(AdsInitializer.instance.ensureInitialized());
   }, (error, stack) async {
-    // This is the final safety net. If an error occurs even during
-    // initialization, try to record it.
     try {
       await FirebaseCrashlytics.instance
           .recordError(error, stack, fatal: true);
     } catch (e) {
-      // Avoid crashing while reporting a crash.
       debugPrint('Failed to report error to Crashlytics: $e');
     }
   });
 }
-
-
 // --- The rest of your application code remains unchanged ---
 
 class TarotAiApp extends StatelessWidget {
@@ -124,7 +176,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
   String _recognizedText = '';
   String _displayText = '';
   String? _errorText;
-  
+
   // Ad variables
   BannerAd? _bannerAd;
   bool _isBannerAdLoaded = false;
@@ -141,7 +193,6 @@ class _SpeechScreenState extends State<SpeechScreen> {
   // משתנים חדשים לטיפול במנגנון הלחיצה והשחרור
   Timer? _longPressTimer;
   bool _isLongPressStarted = false;
-
 
   @override
   void initState() {
@@ -167,14 +218,18 @@ class _SpeechScreenState extends State<SpeechScreen> {
 
   void activateSpeechRecognizer() {
     _speech = SpeechRecognition();
-    final deviceLocale = WidgetsBinding.instance.platformDispatcher.locale.toString();
+    final deviceLocale =
+        WidgetsBinding.instance.platformDispatcher.locale.toString();
     _speech.setAvailabilityHandler((available) {});
-    _speech.setRecognitionStartedHandler(() => setState(() => _currentStage = AppStage.listening));
-    _speech.setRecognitionResultHandler((text) => setState(() => _recognizedText = text));
+    _speech.setRecognitionStartedHandler(
+        () => setState(() => _currentStage = AppStage.listening));
+    _speech.setRecognitionResultHandler(
+        (text) => setState(() => _recognizedText = text));
     _speech.setRecognitionCompleteHandler((text) {
       setState(() {
         _recognizedText = text.trim();
-        _currentStage = _recognizedText.isNotEmpty ? AppStage.confirming : AppStage.idle;
+        _currentStage =
+            _recognizedText.isNotEmpty ? AppStage.confirming : AppStage.idle;
       });
     });
     _speech.activate(deviceLocale);
@@ -217,7 +272,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
       _stopListening();
     }
   }
-  
+
   void _reset() {
     _bannerAd?.dispose();
     _bannerAd = null;
@@ -238,7 +293,14 @@ class _SpeechScreenState extends State<SpeechScreen> {
     });
   }
 
-  void _loadBannerAd() async {
+  Future<void> _loadBannerAd() async {
+    // ודא/י שמודעות מאופשרות אחרי CMP לפני טעינת באנר
+    try {
+      await AdsInitializer.instance.ensureInitialized();
+    } catch (_) {
+      // גם אם נכשל – ננסה לטעון; האתחול בוצע כבר מאחוריי הקלעים
+    }
+
     if (!mounted) return;
     final screenWidth = MediaQuery.of(context).size.width;
     final adSize = await AdSize.getAnchoredAdaptiveBannerAdSize(
@@ -247,23 +309,23 @@ class _SpeechScreenState extends State<SpeechScreen> {
     );
 
     if (adSize == null) {
-      debugPrint('Unable to get adaptive banner size');
+      
       return;
     }
 
     _bannerAd = BannerAd(
-      adUnitId: 'ca-app-pub-3940256099942544/6300978111', // Test Ad Unit ID
+      adUnitId: 'ca-app-pub-9736164634286640/5292934408', 
       request: const AdRequest(),
       size: adSize,
       listener: BannerAdListener(
         onAdLoaded: (ad) {
-          debugPrint('$ad loaded.');
+         
           if (mounted) {
             setState(() => _isBannerAdLoaded = true);
           }
         },
         onAdFailedToLoad: (ad, err) {
-          debugPrint('BannerAd failed to load: $err');
+        
           ad.dispose();
         },
       ),
@@ -277,14 +339,17 @@ class _SpeechScreenState extends State<SpeechScreen> {
       final list = await ref.listAll();
       _cardRefs = list.items.where((i) {
         final name = i.name.toLowerCase();
-        return name.endsWith('.jpg') || name.endsWith('.jpeg') || name.endsWith('.png') || name.endsWith('.webp');
+        return name.endsWith('.jpg') ||
+            name.endsWith('.jpeg') ||
+            name.endsWith('.png') ||
+            name.endsWith('.webp');
       }).toList();
       _cardsLoaded = true;
     } catch (e) {
       if (mounted) {
         setState(() => _errorText = AppLocalizations.of(context)!.errorOccurred);
       }
-      debugPrint('Storage error: $e');
+     
     }
   }
 
@@ -318,13 +383,19 @@ class _SpeechScreenState extends State<SpeechScreen> {
           _errorText = AppLocalizations.of(context)!.permissionDenied;
         });
       }
-      debugPrint('getDownloadURL error: $e');
+      
     }
   }
 
-  String _slugFromFileName(String name) => name.toLowerCase().replaceAll(RegExp(r'\.(jpg|jpeg|png|webp)$'), '');
+  String _slugFromFileName(String name) =>
+      name.toLowerCase().replaceAll(RegExp(r'\.(jpg|jpeg|png|webp)$'), '');
 
-  String _titleFromSlug(String slug) => slug.split('_').map((p) => p == 'of' ? 'of' : (p.isEmpty ? p : (p[0].toUpperCase() + p.substring(1)))).join(' ');
+  String _titleFromSlug(String slug) => slug
+      .split('_')
+      .map((p) => p == 'of'
+          ? 'of'
+          : (p.isEmpty ? p : (p[0].toUpperCase() + p.substring(1))))
+      .join(' ');
 
   Future<void> _explainCard() async {
     if (_drawnFileName == null || !mounted) return;
@@ -334,8 +405,13 @@ class _SpeechScreenState extends State<SpeechScreen> {
     final cardName = _titleFromSlug(slug);
     setState(() => _explanationLoading = true);
     try {
-      final callable = FirebaseFunctions.instanceFor(region: 'us-central1').httpsCallable('getTarotReading', options: HttpsCallableOptions(timeout: const Duration(seconds: 90)));
-      final result = await callable.call<Map<String, dynamic>>({'text': question, 'lang': lang, 'cardSlug': slug, 'cardName': cardName});
+      final callable = FirebaseFunctions.instanceFor(region: 'us-central1')
+          .httpsCallable('getTarotReading',
+              options:
+                  HttpsCallableOptions(timeout: const Duration(seconds: 90)));
+      final result = await callable
+          .call<Map<String, dynamic>>(
+              {'text': question, 'lang': lang, 'cardSlug': slug, 'cardName': cardName});
       final data = Map<String, dynamic>.from(result.data);
       if (mounted) {
         setState(() {
@@ -350,10 +426,10 @@ class _SpeechScreenState extends State<SpeechScreen> {
           _errorText = AppLocalizations.of(context)!.errorOccurred;
         });
       }
-      debugPrint('Explain error: $e');
+      
     }
   }
-  
+
   // --- UI Building Methods ---
 
   AppBar _buildAppBar(BuildContext context) {
@@ -395,11 +471,23 @@ class _SpeechScreenState extends State<SpeechScreen> {
                 )
               : null,
           persistentFooterButtons: _currentStage == AppStage.confirming
-              ? [Center(child: TextButton(onPressed: _reset, child: Text(AppLocalizations.of(context)!.tryAgain, style: const TextStyle(color: Colors.white70, fontSize: 16))))]
+              ? [
+                  Center(
+                      child: TextButton(
+                          onPressed: _reset,
+                          child: Text(
+                            AppLocalizations.of(context)!.tryAgain,
+                            style: const TextStyle(
+                                color: Colors.white70, fontSize: 16),
+                          )))
+                ]
               : null,
           body: _currentStage == AppStage.showingResult
               ? _buildContentForStage()
-              : Center(child: SingleChildScrollView(padding: const EdgeInsets.all(24), child: _buildContentForStage())),
+              : Center(
+                  child: SingleChildScrollView(
+                      padding: const EdgeInsets.all(24),
+                      child: _buildContentForStage())),
         ),
       ),
     );
@@ -423,22 +511,36 @@ class _SpeechScreenState extends State<SpeechScreen> {
       case AppStage.idle:
       case AppStage.listening:
         return Column(mainAxisSize: MainAxisSize.min, children: [
-          Text(AppLocalizations.of(context)!.pressButtonToStart, textAlign: TextAlign.center, style: const TextStyle(fontSize: 28.0, color: Colors.white, fontWeight: FontWeight.w300)),
+          Text(AppLocalizations.of(context)!.pressButtonToStart,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                  fontSize: 28.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w300)),
           const SizedBox(height: 40),
           _buildRecordButton(),
         ]);
       case AppStage.confirming:
         return Column(mainAxisSize: MainAxisSize.min, children: [
-          Text('"$_recognizedText?"', textAlign: TextAlign.center, style: const TextStyle(fontSize: 28.0, color: Colors.white, fontWeight: FontWeight.w300)),
+          Text('"$_recognizedText?"',
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                  fontSize: 28.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w300)),
           const SizedBox(height: 40),
           FloatingActionButton.large(
             onPressed: _drawRandomCard,
             backgroundColor: Colors.deepPurple,
-            child: Text(AppLocalizations.of(context)!.openCard, textAlign: TextAlign.center, style: const TextStyle(color: Colors.white)),
+            child: Text(AppLocalizations.of(context)!.openCard,
+                textAlign: TextAlign.center,
+                style: const TextStyle(color: Colors.white)),
           ),
         ]);
       case AppStage.loading:
-        return const Padding(padding: EdgeInsets.symmetric(vertical: 60), child: CircularProgressIndicator(color: Colors.white));
+        return const Padding(
+            padding: EdgeInsets.symmetric(vertical: 60),
+            child: CircularProgressIndicator(color: Colors.white));
       case AppStage.showingResult:
         if (_drawnCardUrl == null) return const SizedBox.shrink();
         return Stack(fit: StackFit.expand, children: [
@@ -447,7 +549,8 @@ class _SpeechScreenState extends State<SpeechScreen> {
             fit: BoxFit.contain,
             loadingBuilder: (context, child, loadingProgress) {
               if (loadingProgress == null) return child;
-              return const Center(child: CircularProgressIndicator(color: Colors.white));
+              return const Center(
+                  child: CircularProgressIndicator(color: Colors.white));
             },
           ),
           Align(
@@ -461,21 +564,24 @@ class _SpeechScreenState extends State<SpeechScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.deepPurple.withOpacity(0.85),
                   foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
                   elevation: 8,
                 ),
               ),
             ),
           ),
-          if (_explanationLoading) 
+          if (_explanationLoading)
             Center(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const CircularProgressIndicator(color: Colors.white),
                   const SizedBox(height: 16),
-                  Text(AppLocalizations.of(context)!.receivingMessage, style: const TextStyle(color: Colors.white70))
+                  Text(AppLocalizations.of(context)!.receivingMessage,
+                      style: const TextStyle(color: Colors.white70))
                 ],
               ),
             ),
@@ -490,11 +596,20 @@ class _SpeechScreenState extends State<SpeechScreen> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(_titleFromSlug(_slugFromFileName(_drawnFileName!)), style: const TextStyle(color: Colors.amber, fontSize: 22, fontWeight: FontWeight.bold)),
+                      Text(_titleFromSlug(_slugFromFileName(_drawnFileName!)),
+                          style: const TextStyle(
+                              color: Colors.amber,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold)),
                       const SizedBox(height: 16),
-                      Text(_explanation!, textAlign: TextAlign.center, style: const TextStyle(color: Colors.white, fontSize: 20, height: 1.4)),
+                      Text(_explanation!,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 20, height: 1.4)),
                       const SizedBox(height: 24),
-                      Text(AppLocalizations.of(context)!.tapToClose, style: const TextStyle(color: Colors.white54, fontSize: 14)),
+                      Text(AppLocalizations.of(context)!.tapToClose,
+                          style: const TextStyle(
+                              color: Colors.white54, fontSize: 14)),
                     ],
                   ),
                 ),
@@ -505,7 +620,9 @@ class _SpeechScreenState extends State<SpeechScreen> {
               child: Container(
                 color: Colors.black87,
                 padding: const EdgeInsets.all(20),
-                child: Text(_errorText!, style: const TextStyle(color: Colors.redAccent, fontSize: 18)),
+                child: Text(_errorText!,
+                    style: const TextStyle(
+                        color: Colors.redAccent, fontSize: 18)),
               ),
             ),
         ]);
@@ -526,7 +643,8 @@ class _SpeechScreenState extends State<SpeechScreen> {
           shape: BoxShape.circle,
           boxShadow: [
             BoxShadow(
-              color: (isListening ? Colors.red : Colors.deepPurple).withOpacity(0.5),
+              color:
+                  (isListening ? Colors.red : Colors.deepPurple).withOpacity(0.5),
               spreadRadius: isListening ? 4 : 2,
               blurRadius: 10,
             ),

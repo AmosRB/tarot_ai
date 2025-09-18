@@ -1,7 +1,7 @@
 name: tarot_ai
 description: "A new Flutter project."
 publish_to: 'none' 
-version: 1.0.1+170825141
+version: 1.0.2+170825147
 
 environment:
   sdk: ">=3.3.0 <4.0.0"
@@ -10,10 +10,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  google_mobile_ads: ^5.1.0
+  google_mobile_ads: ^6.0.0
 
   firebase_auth: ^5.1.4
   google_sign_in: ^6.2.1
+  flutter_signin_button: ^2.0.0
 
   firebase_app_check: ^0.3.0+3
 
